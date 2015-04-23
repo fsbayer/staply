@@ -1,0 +1,31 @@
+inflection: "1st declension"
+classes:
+  - C: "bcdðfghjlmnpqrstþv"
+  - V: "aáeioóuyý"
+  - X: "ptcfþ"
+  - Y: "bdgvð"
+type: "noun"
+- case: "nom"
+  mutation: 0
+- case: "acc"
+  mutation:
+    - rwrt: "V#"
+      suffix: "d"
+    - rwrt: 0
+      suffix: "en"
+- case: "voc"
+  mutation:
+    - rwrt: "#C"
+      suffix: "h"
+    - rwrt: "#V"
+      prefix: "h-"
+    - rwrt: "(e|i|y|ý)#"
+      rwrt: "(e|i|y|ý)*#"
+      suffix: ne
+    - rwrt: "V#"
+      not: "(e|i|y|ý)#"
+      suffix: n
+    - rwrt: "X#"
+      replace: "Y#"
+    - rwrt: "C#"
+      suffix: a
