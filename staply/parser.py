@@ -30,4 +30,10 @@ __author__ = 'Frederic Bayer'
 
 def parse(filename):
     print(filename)
-    return
+    inflections = "This will be an object holding the parsed inflectional data."
+    return [True, inflections]
+
+
+def inflection(infl_name):
+    print(infl_name)
+    return [None]

@@ -25,16 +25,31 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-13SA.
 #------------------------------------------------------------------------------------------------
-
-from staply import parser
-
 __author__ = 'Frederic Bayer'
+
+# Do not change the structure of this. Many Python distributions have a lib called "parser".
+from staply import parser
 
 def main():
     print("Welcome to staply. Please specify a formatted inflection file.")
     print("(Note: The program expects an inflection file in the execution directory.)")
     filename = input()
-    parser.parse(filename)
+    parsed = parser.parse(filename)
+    if parsed[0]:
+        print("File successfully parsed.")
+    else:
+        print("An error has occurred while parsing your file. Please check your file for mistakes.")
+        return
+    print("Please enter the name of your desired inflection.")
+    infl_name = input()
+    exists_infl_name = parser.inflection(infl_name)
+    while not exists_infl_name[0]:
+        print("No such inflection exists. Please try again or enter exit to quit.")
+        infl_name = input()
+        if infl_name == "exit":
+            return
+        exists_infl_name = parser.inflection(infl_name)
+    print("Inflection requested has been found. Please enter the word or words you wish to inflect.")
     return
 
 if __name__ == '__main__':
