@@ -25,15 +25,8 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-13SA.
 #------------------------------------------------------------------------------------------------
-
 __author__ = 'Frederic Bayer'
 
-def parse(filename):
-    print(filename)
-    inflections = "This will be an object holding the parsed inflectional data."
-    return [True, inflections]
-
-
-def inflection(infl_name):
-    print(infl_name)
-    return [None]
+def inflection(ifile, infl_name):
+    print(infl_name & ifile)
+    return None

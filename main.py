@@ -27,28 +27,41 @@
 #------------------------------------------------------------------------------------------------
 __author__ = 'Frederic Bayer'
 
-# Do not change the structure of this. Many Python distributions have a lib called "parser".
-from staply import parser
+# Do not change the structure of this. Many Python distributions have libs with these names.
+from staply import read, parse
 
 def main():
+    # Input filename.
     print("Welcome to staply. Please specify a formatted inflection file.")
-    print("(Note: The program expects an inflection file in the execution directory.)")
-    filename = input()
-    parsed = parser.parse(filename)
-    if parsed[0]:
-        print("File successfully parsed.")
-    else:
-        print("An error has occurred while parsing your file. Please check your file for mistakes.")
+    filename = input("File: ")
+
+    # Verify and read file.
+    verified = read.verify(filename)
+    if verified[0]:
+        print("File successfully read.")
+    elif verified[1] == 0:
+        print("Specified file not found. Please try again.")
         return
+    elif verified[1] == 1:
+        print("File not valid. Please try again.")
+        return
+    else:
+        print("An unknown error occurred. Please try again.")
+        return
+
+    # Define file object.
+    ifile = verified[1]
+
+    # Select inflection.
     print("Please enter the name of your desired inflection.")
-    infl_name = input()
-    exists_infl_name = parser.inflection(infl_name)
-    while not exists_infl_name[0]:
+    infl_name = input("Inflection: ")
+    exists_infl_name = parse.inflection(ifile, infl_name)
+    while not exists_infl_name:
         print("No such inflection exists. Please try again or enter exit to quit.")
         infl_name = input()
         if infl_name == "exit":
             return
-        exists_infl_name = parser.inflection(infl_name)
+        exists_infl_name = parse.inflection(infl_name)
     print("Inflection requested has been found. Please enter the word or words you wish to inflect.")
     return
 
