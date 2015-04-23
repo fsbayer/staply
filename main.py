@@ -31,7 +31,7 @@ from staply import parser
 __author__ = 'Frederic Bayer'
 
 def main():
-    print("Welcome to staply mate. Please specify a formatted inflection file.")
+    print("Welcome to staply. Please specify a formatted inflection file.")
     print("(Note: The program expects an inflection file in the execution directory.)")
     filename = input()
     parser.parse(filename)
