@@ -5,11 +5,10 @@
 # Module:        Main
 #
 # Author:        Frederic Bayer
-# Email:         frederic.s.bayer@gmail.com
-# Institution:   Bexhill College
-#                Computing & ICT Department
+# Email:         f.bayer@computer.org
+# Institution:   University of Aberdeen
 #
-# Copyright:     (c) Frederic S. Bayer 2014
+# Copyright:     (c) Frederic S. Bayer 2015
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -24,7 +23,7 @@
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-13SA.
-#------------------------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------------------------
 __author__ = 'Frederic Bayer'
 
 def inflection(ifile, infl_name):

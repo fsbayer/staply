@@ -5,11 +5,10 @@
 # Module:        Main
 #
 # Author:        Frederic Bayer
-# Email:         frederic.s.bayer@gmail.com
-# Institution:   Bexhill College
-#                Computing & ICT Department
+# Email:         f.bayer@computer.org
+# Institution:   University of Aberdeen
 #
-# Copyright:     (c) Frederic S. Bayer 2014
+# Copyright:     (c) Frederic S. Bayer 2015
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -24,16 +23,17 @@
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-13SA.
-#------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------------------
 __author__ = 'Frederic Bayer'
 
 # Do not change the structure of this. Many Python distributions have libs with these names.
 from staply import read, parse
 
+
 def main():
     # Input filename.
     print("Welcome to staply. Please specify a formatted inflection file.")
-    filename = input("File: ")
+    filename = raw_input("File: ")
 
     # Verify and read file.
     verified = read.verify(filename)
@@ -54,16 +54,17 @@ def main():
 
     # Select inflection.
     print("Please enter the name of your desired inflection.")
-    infl_name = input("Inflection: ")
+    infl_name = raw_input("Inflection: ")
     exists_infl_name = parse.inflection(ifile, infl_name)
     while not exists_infl_name:
         print("No such inflection exists. Please try again or enter exit to quit.")
-        infl_name = input()
+        infl_name = raw_input()
         if infl_name == "exit":
             return
         exists_infl_name = parse.inflection(infl_name)
     print("Inflection requested has been found. Please enter the word or words you wish to inflect.")
     return
+
 
 if __name__ == '__main__':
     main()
